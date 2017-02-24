@@ -1,5 +1,7 @@
 FROM ubuntu:latest
 
+MAINTAINER Naoya Nakazawa <naoya.n@gmail.com>
+
 ENV user ubuntu
 ENV group ubuntu
 ENV work /work
