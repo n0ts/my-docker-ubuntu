@@ -11,7 +11,8 @@ RUN \
   && apt upgrade -y \
   && apt install -y build-essential curl emacs git \
                     less python silversearcher-ag \
-                    software-properties-common sudo tree vim wget zsh \
+                    software-properties-common \
+                    sudo tree unzip vim wget zsh \
 
   # add local user
   && groupadd ${user} \
@@ -23,4 +24,4 @@ RUN \
   && mkdir ${work} \
   && chown -R ${user}:${group} ${work}
 
-ENTRYPOINT ["/bin/bash", "-C"]
+CMD ["/bin/bash"]
