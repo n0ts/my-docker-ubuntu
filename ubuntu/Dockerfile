@@ -9,7 +9,9 @@ ENV work /work
 RUN \
   apt update \
   && apt upgrade -y \
-  && apt install -y build-essential curl emacs git less python silversearcher-ag sudo tree vim wget zsh \
+  && apt install -y build-essential curl emacs git \
+                    less python silversearcher-ag \
+                    software-properties-common sudo tree vim wget zsh \
 
   # add local user
   && groupadd ${user} \
