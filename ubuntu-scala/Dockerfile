@@ -9,7 +9,7 @@ RUN \
     # install scala
     wget http://www.scala-lang.org/files/archive/scala-${scala_version}.deb -P /opt \
     && dpkg -i /opt/scala-${scala_version}.deb \
-    && rm -f /opt/scala-${scala_version}.deb
+    && rm -f /opt/scala-${scala_version}.deb \
 
     # install sbt
     && wget http://dl.bintray.com/sbt/debian/sbt-${sbt_version}.deb -P /opt \
