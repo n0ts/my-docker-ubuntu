@@ -16,4 +16,4 @@ RUN \
     && dpkg -i /opt/sbt-${sbt_version}.deb \
     && rm -f /opt/sbt-${sbt_version}.deb
 
-ENTRYPOINT ["/bin/bash", "-C"]
+CMD ["/bin/bash"]

@@ -10,7 +10,7 @@ RUN \
   apt update \
   && apt upgrade -y \
   && apt install -y build-essential curl emacs git \
-                    less python silversearcher-ag \
+                    less silversearcher-ag \
                     software-properties-common \
                     sudo tree unzip vim wget zsh \
 

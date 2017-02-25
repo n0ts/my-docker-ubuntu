@@ -6,6 +6,6 @@ RUN \
     add-apt-repository -y ppa:webupd8team/java \
     && apt update \
     && echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 select true" | debconf-set-selections \
-    && apt install -y oracle-java8-installer \
+    && apt install -y oracle-java8-installer
 
-ENTRYPOINT ["/bin/bash", "-C"]
+CMD ["/bin/bash"]
