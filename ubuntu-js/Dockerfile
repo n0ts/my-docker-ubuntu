@@ -15,10 +15,7 @@ RUN \
     && echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list \
     && apt update \
     && apt install -y google-chrome-stable xvfb \
-    && export DISPLAY=$DISPLAY \
-    && export CHROME_BIN=$CHROME_BIN \
-    && sh -e /etc/init.d/xvfb start \
-    && ps aux | grep Xvfb \
+    && /etc/init.d/xvfb start \
     && ver=$(curl -s http://chromedriver.storage.googleapis.com/LATEST_RELEASE) \
     && wget -O /opt/chromedriver.zip http://chromedriver.storage.googleapis.com/$ver/chromedriver_linux64.zip \
     && unzip /opt/chromedriver.zip chromedriver -d /usr/local/bin/ \
