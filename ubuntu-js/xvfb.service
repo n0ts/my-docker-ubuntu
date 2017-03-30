@@ -1,0 +1,10 @@
+[Unit]
+Description=Xvfb
+After=syslog.target
+
+[Service]
+ExecStart=/usr/local/bin/xvfb start
+ExecStop=/usr/local/bin//xvfb stop
+
+[Install]
+WantedBy=multi-user.target
