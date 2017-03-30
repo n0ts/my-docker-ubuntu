@@ -8,17 +8,17 @@ COPY google-chrome-launcher /usr/local/bin/
 ENV DISPLAY :99.0
 ENV CHROME_BIN /usr/local/bin/google-chrome-launcher
 
-RUN \
-    curl -sL https://deb.nodesource.com/setup_7.x | bash - \
-    && apt install -y nodejs \
-    && wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - \
-    && echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list \
-    && apt update \
-    && apt install -y google-chrome-stable xvfb \
-    && /etc/init.d/xvfb start \
-    && ver=$(curl -s http://chromedriver.storage.googleapis.com/LATEST_RELEASE) \
-    && wget -O /opt/chromedriver.zip http://chromedriver.storage.googleapis.com/$ver/chromedriver_linux64.zip \
-    && unzip /opt/chromedriver.zip chromedriver -d /usr/local/bin/ \
-    && rm -f /top/chromedriver.zip
+#RUN \
+RUN    curl -sL https://deb.nodesource.com/setup_7.x | bash -
+RUN    apt install -y nodejs
+RUN    wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+RUN    echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list
+RUN    apt update
+RUN    apt install -y google-chrome-stable 
+RUN /etc/init.d/xvfb start 
+RUN   ver=$(curl -s http://chromedriver.storage.googleapis.com/LATEST_RELEASE)
+RUN   wget -O /opt/chromedriver.zip http://chromedriver.storage.googleapis.com/$ver/chromedriver_linux64.zip
+RUN   unzip /opt/chromedriver.zip chromedriver -d /usr/local/bin/
+RUN rm -f /top/chromedriver.zip
 
 CMD ["/bin/bash"]
