@@ -6,7 +6,7 @@ COPY xvfb /etc/init.d/
 COPY google-chrome-launcher /usr/local/bin/
 
 ENV DISPLAY :99.0
-ENV CHROME_BIN /usr/lcoal/bin/google-chrome-launcher
+ENV CHROME_BIN /usr/local/bin/google-chrome-launcher
 
 RUN \
     curl -sL https://deb.nodesource.com/setup_7.x | bash - \
