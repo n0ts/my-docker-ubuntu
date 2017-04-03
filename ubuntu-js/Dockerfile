@@ -11,7 +11,7 @@ ENV CHROME_BIN /usr/local/bin/google-chrome-launcher
 
 RUN \
     curl -sL https://deb.nodesource.com/setup_7.x | bash - \
-    && apt install -y nodejs \
+    && apt install -y nodejs xvfb \
     && wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - \
     && echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list \
     && apt update \
