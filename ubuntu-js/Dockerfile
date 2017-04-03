@@ -12,10 +12,12 @@ ENV CHROME_BIN /usr/local/bin/google-chrome-launcher
 RUN \
     curl -sL https://deb.nodesource.com/setup_7.x | bash - \
     && apt install -y nodejs xvfb \
-    && wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - \
+    && wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
     && echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list \
+    && curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
+    && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
     && apt update \
-    && apt install -y google-chrome-stable \
+    && apt install -y google-chrome-stable yarn \
     && ver=$(curl -s http://chromedriver.storage.googleapis.com/LATEST_RELEASE) \
     && wget -O /opt/chromedriver.zip http://chromedriver.storage.googleapis.com/$ver/chromedriver_linux64.zip \
     && unzip -o /opt/chromedriver.zip chromedriver -d /usr/local/bin/ \
