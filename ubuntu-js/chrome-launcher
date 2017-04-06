@@ -39,4 +39,4 @@ export CHROME_VERSION_EXTRA="stable"
 # We don't want bug-buddy intercepting our crashes. http://crbug.com/24120
 export GNOME_DISABLE_CRASH_DIALOG=SET_BY_GOOGLE_CHROME
 
-exec -a "$0" /opt/google/chrome/chrome --user-data-dir --no-sandbox "$@"
+exec -a "$0" /opt/google/chrome/_chrome --user-data-dir --disable-gpu --no-sandbox "$@"
