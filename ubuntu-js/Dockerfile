@@ -7,9 +7,7 @@ ENV SCREEN_HEIGHT 800
 ENV SCREEN_DEPTH 24
 ENV DISPLAY :99.0
 
-ENV SELENIUM_MAJOR_VER 3.3
-ENV SELENIUM_MINOR_VER 1
-
+COPY xvfb /usr/local/bin/
 COPY entry_point.sh /usr/local/bin/
 
 RUN \
@@ -25,13 +23,8 @@ RUN \
     && wget -O /opt/chromedriver.zip http://chromedriver.storage.googleapis.com/$ver/chromedriver_linux64.zip \
     && unzip -o /opt/chromedriver.zip chromedriver -d /usr/local/bin/ \
     && rm -f /opt/chromedriver.zip \
-    && mv /opt/google/chrome/chrome /opt/google/chrome/_chrome \
-    && mkdir -p /opt/selenium \
-    && wget -q -O /opt/selenium/selenium-server-standalone.jar https://selenium-release.storage.googleapis.com/${SELENIUM_MAJOR_VER}/selenium-server-standalone-${SELENIUM_MAJOR_VER}.${SELENIUM_MINOR_VER}.jar
+    && mv /opt/google/chrome/chrome /opt/google/chrome/_chrome
 
 COPY chrome-launcher /opt/google/chrome/chrome
 
 CMD ["/usr/local/bin/entry_point.sh"]
-
-
-
