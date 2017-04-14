@@ -1,4 +1,4 @@
-FROM n0ts/ubuntu
+FROM n0ts/ubuntu-docker
 
 MAINTAINER Naoya Nakazawa <naoya.n@gmail.com>
 
