@@ -9,8 +9,9 @@ ENV work /work
 RUN \
   apt update \
   && apt upgrade -y \
-  && apt install -y build-essential \
-                    bash-completion curl emacs git \
+  && apt install -y apt-transport-https \
+                    build-essential bash-completion \
+                    ca-certificates curl emacs git \
                     less silversearcher-ag \
                     software-properties-common \
                     sudo tree unzip vim wget \
