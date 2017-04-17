@@ -14,14 +14,19 @@ RUN \
     curl -sL https://deb.nodesource.com/setup_7.x | bash - \
     && apt install -y python nodejs xvfb \
     && wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
-    && echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list \
+    && add-apt-repository \
+           "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" \
     && curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
-    && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
+    && add-apt-repository \
+           "deb https://dl.yarnpkg.com/debian/ stable main" \
     && apt update \
     && apt install -y google-chrome-stable yarn \
+    && /opt/google/chrome/chrome --version \
+    && yarn --version \
     && ver=$(curl -s http://chromedriver.storage.googleapis.com/LATEST_RELEASE) \
     && wget -O /opt/chromedriver.zip http://chromedriver.storage.googleapis.com/$ver/chromedriver_linux64.zip \
     && unzip -o /opt/chromedriver.zip chromedriver -d /usr/local/bin/ \
+    && chromedriver --version \
     && rm -f /opt/chromedriver.zip \
     && mv /opt/google/chrome/chrome /opt/google/chrome/_chrome
 
