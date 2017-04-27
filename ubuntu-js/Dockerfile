@@ -10,10 +10,10 @@ ENV DISPLAY :99.0
 COPY xvfb /usr/local/bin/
 COPY entry_point.sh /usr/local/bin/
 
-RUN \
-    curl -sL https://deb.nodesource.com/setup_7.x | bash - \
+RUN set -x \
+    && curl -s -L https://deb.nodesource.com/setup_7.x | bash - \
     && apt install -y python nodejs xvfb \
-    && wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
+    && curl -s -L https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
     && add-apt-repository \
            "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" \
     && curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
@@ -24,7 +24,7 @@ RUN \
     && /opt/google/chrome/chrome --version \
     && yarn --version \
     && ver=$(curl -s http://chromedriver.storage.googleapis.com/LATEST_RELEASE) \
-    && wget -O /opt/chromedriver.zip http://chromedriver.storage.googleapis.com/$ver/chromedriver_linux64.zip \
+    && curl -L -o /opt/chromedriver.zip http://chromedriver.storage.googleapis.com/$ver/chromedriver_linux64.zip \
     && unzip -o /opt/chromedriver.zip chromedriver -d /usr/local/bin/ \
     && chromedriver --version \
     && rm -f /opt/chromedriver.zip \

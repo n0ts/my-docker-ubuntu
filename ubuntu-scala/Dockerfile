@@ -2,18 +2,19 @@ FROM n0ts/ubuntu-java
 
 MAINTAINER Naoya Nakazawa <naoya.n@gmail.com>
 
-ENV scala_version 2.12.1
-ENV sbt_version 0.13.13
-
-RUN \
+RUN set -x \
     # install scala
-    wget http://www.scala-lang.org/files/archive/scala-${scala_version}.deb -P /opt \
-    && dpkg -i /opt/scala-${scala_version}.deb \
-    && rm -f /opt/scala-${scala_version}.deb \
+    && SCALA_VER=$(curl -s -o /dev/null -I -w "%{redirect_url}\n" https://github.com/scala/scala/releases/latest | grep -oP "[0-9]+.[0-9]+.[0-9]+$") \
+    && curl -L -o /opt/scala-$SCALA_VER.deb \
+           http://www.scala-lang.org/files/archive/scala-$SCALA_VER.deb \
+    && dpkg -i /opt/scala-$SCALA_VER.deb \
+    && rm -f /opt/scala-$SCALA_VER.deb \
 
     # install sbt
-    && wget http://dl.bintray.com/sbt/debian/sbt-${sbt_version}.deb -P /opt \
-    && dpkg -i /opt/sbt-${sbt_version}.deb \
-    && rm -f /opt/sbt-${sbt_version}.deb
+    && SBT_VER=$(curl -s -o /dev/null -I -w "%{redirect_url}\n" https://github.com/sbt/sbt/releases/latest | grep -oP "[0-9]+.[0-9]+.[0-9]+$")
+    && curl -L -o /opt/sbt-$SBT_VER.deb \
+           http://dl.bintray.com/sbt/debian/sbt-$SBT_VER.deb \
+    && dpkg -i /opt/sbt-$SBT_VER.deb \
+    && rm -f /opt/sbt-$SBT_VER.deb
 
 CMD ["/bin/bash"]
