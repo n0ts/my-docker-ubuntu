@@ -6,8 +6,8 @@ ENV user ubuntu
 ENV group ubuntu
 ENV work /work
 
-RUN \
-  apt update \
+RUN set -x \
+  && apt update \
   && apt upgrade -y \
   && apt install -y apt-transport-https \
                     build-essential bash-completion \
