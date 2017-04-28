@@ -12,11 +12,10 @@ RUN set -x \
 
     # install sbt
     && SBT_VER=$(curl -s -o /dev/null -I -w "%{redirect_url}\n" https://github.com/sbt/sbt/releases/latest | grep -oP "[0-9]+.[0-9]+.[0-9]+$") \
-    && curl -L -o /opt/sbt-$SBT_VER.tgz \
-           https://github.com/sbt/sbt/releases/download/v0.13.15/sbt-$SBT_VER.tgz \
-    && tar xvzf /opt/sbt-$SBT_VER.tgz -C /opt \
-    && rm -f /opt/sbt-$SBT_VER.tgz \
-    && ln -s /opt/sbt/bin/sbt /usr/local/bin/sbt \
+    && curl -L -o /opt/sbt-$SBT_VER.deb \
+           https://dl.bintray.com/sbt/debian/sbt-${SBT_VER}.deb \
+           #https://github.com/sbt/sbt/releases/download/v0.13.15/sbt-$SBT_VER.tgz \
+    && dpkg -i /opt/sbt-$SBT_VER.deb \
     && sbt about
 
 CMD ["/bin/bash"]
