@@ -14,7 +14,6 @@ RUN set -x \
     && SBT_VER=$(curl -s -o /dev/null -I -w "%{redirect_url}\n" https://github.com/sbt/sbt/releases/latest | grep -oP "[0-9]+.[0-9]+.[0-9]+$") \
     && curl -L -o /opt/sbt-$SBT_VER.deb \
            https://dl.bintray.com/sbt/debian/sbt-${SBT_VER}.deb \
-           #https://github.com/sbt/sbt/releases/download/v0.13.15/sbt-$SBT_VER.tgz \
     && dpkg -i /opt/sbt-$SBT_VER.deb \
     && sbt about
 
