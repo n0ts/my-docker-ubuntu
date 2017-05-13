@@ -10,6 +10,11 @@ RUN set -x \
     && pip install ansible-lint \
     && pip install --upgrade ansible \
 
+    # create ansible configuration
+    && mkdir /etc/ansible \
+    && curl -L -o /etc/ansible/ansible.cfg \
+        https://raw.githubusercontent.com/ansible/ansible/devel/examples/ansible.cfg \
+
     # install human_log callback plugin
     # https://github.com/n0ts/ansible-human_log/
     && mkdir -p /usr/share/ansible/plugins/callback \
