@@ -1,3 +1,4 @@
+#TEST
 FROM ubuntu:latest
 
 MAINTAINER Naoya Nakazawa <naoya.n@gmail.com>
