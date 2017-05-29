@@ -2,6 +2,11 @@ FROM n0ts/ubuntu-java
 
 MAINTAINER Naoya Nakazawa <naoya.n@gmail.com>
 
+# https://github.com/scala/scala/releases
+##ENV SCALA_VER 2.11.11
+# https://github.com/sbt/sbt/releases
+##ENV SBT_VER 0.13.13
+
 RUN set -x \
     # install scala
     && SCALA_VER=$(curl -s -o /dev/null -I -w "%{redirect_url}\n" https://github.com/scala/scala/releases/latest | grep -oP "[0-9]+.[0-9]+.[0-9]+$") \
