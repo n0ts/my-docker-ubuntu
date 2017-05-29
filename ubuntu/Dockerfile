@@ -15,6 +15,9 @@ RUN set -x \
                       less silversearcher-ag \
                       software-properties-common \
                       sudo tree unzip vim wget \
+                      language-pack-en language-pack-ja \
+
+    && locale-gen \
 
     # add local user
     && groupadd ${user} \
