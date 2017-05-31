@@ -1,4 +1,4 @@
-FROM n0ts/ubuntu-java
+FROM n0ts/ubuntu
 
 MAINTAINER Naoya Nakazawa <naoya.n@gmail.com>
 
