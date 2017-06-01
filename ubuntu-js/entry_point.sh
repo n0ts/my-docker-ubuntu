@@ -1,6 +1,6 @@
 #!/bin/bash
 
-/usr/local/bin/xvfb start
+sudo -E /usr/local/bin/xvfb start
 
 /bin/bash
 NODE_PID=$!
