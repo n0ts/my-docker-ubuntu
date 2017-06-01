@@ -6,6 +6,7 @@ ENV SCREEN_WIDTH 1280
 ENV SCREEN_HEIGHT 800
 ENV SCREEN_DEPTH 24
 ENV DISPLAY :99.0
+ENV TERM xterm
 
 COPY xvfb /usr/local/bin/
 COPY entry_point.sh /usr/local/bin/
