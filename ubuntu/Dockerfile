@@ -16,6 +16,8 @@ RUN set -x \
                       software-properties-common \
                       sudo tree unzip vim wget \
                       language-pack-en language-pack-ja \
+                      netcat telnet \
+                      mysql-client postgresql-client redis-tools \
 
     && locale-gen \
 

@@ -8,9 +8,6 @@ MAINTAINER Naoya Nakazawa <naoya.n@gmail.com>
 ##ENV SBT_VER 0.13.13
 
 RUN set -x \
-    # install mysql-client
-    && apt install -y mysql-client \
-
     # install scala
     && SCALA_VER=$(curl -s -o /dev/null -I -w "%{redirect_url}\n" https://github.com/scala/scala/releases/latest | grep -oP "[0-9]+.[0-9]+.[0-9]+$") \
     && curl -L -o /opt/scala-$SCALA_VER.deb \
