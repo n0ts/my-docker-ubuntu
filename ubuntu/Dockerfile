@@ -9,7 +9,7 @@ ENV work /work
 RUN set -x \
     && apt update \
     && apt upgrade -y \
-    && apt install -y apt-transport-https \
+    && apt install -y apt-transport-https autoconf \
                       build-essential bash-completion \
                       ca-certificates curl emacs git \
                       less silversearcher-ag \
