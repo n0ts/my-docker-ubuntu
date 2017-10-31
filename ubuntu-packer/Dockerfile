@@ -2,7 +2,7 @@ FROM n0ts/ubuntu
 
 MAINTAINER Naoya Nakazawa <naoya.n@gmail.com>
 
-ENV PACKER_VER 1.0.0
+ENV PACKER_VER 1.1.1
 
 RUN set -x \
     && curl -L -o /opt/packer-$PACKER_VER.zip \
