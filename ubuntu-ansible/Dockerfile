@@ -14,6 +14,9 @@ RUN set -x \
     && mkdir /etc/ansible \
     && curl -L -o /etc/ansible/ansible.cfg \
         https://raw.githubusercontent.com/ansible/ansible/devel/examples/ansible.cfg \
+    && curl -L -o /etc/ansible/hosts \
+        https://raw.githubusercontent.com/ansible/ansible/devel/examples/hosts \
+    && mkdir /etc/ansible/roles \
 
     # install human_log callback plugin
     # https://github.com/n0ts/ansible-human_log/
