@@ -2,7 +2,7 @@ FROM n0ts/ubuntu
 
 MAINTAINER Naoya Nakazawa <naoya.n@gmail.com>
 
-ENV JAVA_VERSION 8
+ENV JAVA_VERSION 9
 
 RUN set -x \
     && add-apt-repository -y ppa:webupd8team/java \
